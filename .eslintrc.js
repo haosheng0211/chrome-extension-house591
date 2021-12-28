@@ -8,10 +8,13 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
+    'plugin:vue/recommended',
   ],
   rules: {
     'camelcase': 'off',
     'comma-dangle': ['error', 'always-multiline'],
+    'vue/attributes-order': ['error', { alphabetical: true }],
+    'vue/multi-word-component-names': 'off',
   },
   parserOptions: {
     'sourceType': 'module',

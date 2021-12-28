@@ -1,6 +1,7 @@
 const path = require('path')
 const CopyPlugin = require('copy-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
@@ -27,13 +28,17 @@ module.exports = {
           'css-loader',
         ],
       },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+      },
     ],
   },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src/'),
     },
-    extensions: ['.js'],
+    extensions: ['.vue', '.js'],
   },
   plugins: [
     new CopyPlugin({
@@ -43,8 +48,9 @@ module.exports = {
     }),
     new ESLintPlugin({
       fix: true,
-      extensions: ['.js'],
+      extensions: ['.vue', '.js'],
     }),
+    new VueLoaderPlugin(),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
