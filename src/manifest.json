@@ -1,0 +1,15 @@
+{
+  "name": "591商家擴展",
+  "description": "",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "permissions": [
+    "tabs",
+    "storage",
+    "unlimitedStorage"
+  ],
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "action": {}
+}
