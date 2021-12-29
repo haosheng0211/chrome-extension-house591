@@ -10,6 +10,10 @@ module.exports = {
   entry: {
     popup: path.resolve(__dirname, 'src/popup/main.js'),
     background: path.resolve(__dirname, 'src/background/main.js'),
+    content_script: path.resolve(__dirname, 'src/content_script/index.js'),
+    content_script_login: path.resolve(__dirname, 'src/content_script/login.js'),
+    content_script_enable: path.resolve(__dirname, 'src/content_script/enable.js'),
+    content_script_update: path.resolve(__dirname, 'src/content_script/update.js'),
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

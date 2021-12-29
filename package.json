@@ -12,6 +12,8 @@
   "license": "MIT",
   "dependencies": {
     "element-ui": "^2.15.6",
+    "js-cookie": "^3.0.1",
+    "moment": "^2.29.1",
     "vue": "^2.6.14"
   },
   "devDependencies": {

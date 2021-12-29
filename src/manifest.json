@@ -13,5 +13,39 @@
   },
   "action": {
     "default_popup": "popup.html"
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.591.com.tw/*"
+      ],
+      "js": [
+        "js/content_script.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://www.591.com.tw/user-login.html*"
+      ],
+      "js": [
+        "js/content_script_login.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://www.591.com.tw/index.php?*&action=expireList*"
+      ],
+      "js": [
+        "js/content_script_enable.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://www.591.com.tw/index.php?*&action=furnitureList*"
+      ],
+      "js": [
+        "js/content_script_update.js"
+      ]
+    }
+  ]
 }
