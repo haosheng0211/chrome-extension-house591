@@ -11,5 +11,7 @@
   "background": {
     "service_worker": "js/background.js"
   },
-  "action": {}
+  "action": {
+    "default_popup": "popup.html"
+  }
 }

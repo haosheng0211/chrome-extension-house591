@@ -1,12 +1,14 @@
 const path = require('path')
 const CopyPlugin = require('copy-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   entry: {
+    popup: path.resolve(__dirname, 'src/popup/main.js'),
     background: path.resolve(__dirname, 'src/background/main.js'),
   },
   output: {
@@ -51,6 +53,13 @@ module.exports = {
       extensions: ['.vue', '.js'],
     }),
     new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'Popup',
+      inject: 'body',
+      chunks: ['popup'],
+      filename: 'popup.html',
+      template: path.resolve(__dirname, 'src/popup/index.html'),
+    }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
