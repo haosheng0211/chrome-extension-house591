@@ -1,7 +1,7 @@
 import storage from '@/utils/storage'
 
 (async () => {
-  const { type, active } = await storage.get(['active', 'type'])
+  const { type, active, delay } = await storage.get(['active', 'type', 'delay'])
   if (active && type === 'update') {
     for (const item of document.querySelectorAll('#list > table > tbody > tr:not(:first-child) > td:first-child')) {
       const id = item.innerText.replace(/[^\d+]/, '')
@@ -14,6 +14,6 @@ import storage from '@/utils/storage'
       } else {
         storage.set({ active: false })
       }
-    }, 2000)
+    }, (delay || 5) * 1000)
   }
 })()

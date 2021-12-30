@@ -33,6 +33,15 @@
         :picker-options="pickerOptions"
       />
     </el-form-item>
+    <el-form-item
+      label="間隔時間"
+      prop="delay"
+    >
+      <el-input
+        v-model="params.delay"
+        :disabled="active"
+      />
+    </el-form-item>
     <el-form-item>
       <el-button
         v-if="active"
@@ -69,6 +78,9 @@ export default {
         close_time: [
           { required: true, message: '請輸入關閉時間', trigger: 'blur' },
         ],
+        delay: [
+          { required: true, message: '請輸入間隔時間', trigger: 'blur' },
+        ],
       },
       params: {
         type: '',
@@ -83,8 +95,8 @@ export default {
     }
   },
   async mounted () {
-    const { type, close_time, active } = await storage.get(['type', 'close_time', 'active'])
-    this.params = { type: type, close_time: close_time }
+    const { type, close_time, active, delay } = await storage.get(['type', 'close_time', 'active', 'delay'])
+    this.params = { type: type, close_time: close_time, delay: delay || 5 }
     this.active = active
   },
   methods: {
